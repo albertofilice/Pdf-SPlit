@@ -1,1 +1,5 @@
-/node_modules
+uploads/
+node_modules/
+.directory
+.split_pdf_2.js.kate-swp
+split_pdf_2.js
