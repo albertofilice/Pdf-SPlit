@@ -49,7 +49,7 @@ var uploading = multer({
 
 router.post('/', uploading, function (req, res, next) {
   
-  res.write(file.originalname + 'file is uploaded');
+  res.write(file.fieldname + 'file is uploaded');
   
   next();
  
