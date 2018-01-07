@@ -9,7 +9,8 @@ var fs      = require('fs');
 var scan_cf = require('./scan_cf.js');
 
 module.exports = function(sourcePDF, outputFolder){
-  
+    
+  console.err('start');
   
   //extract pages in array of strings, one page per item
   extract(sourcePDF, (err, pages) => {  
