@@ -50,7 +50,7 @@ var uploading = multer({
 
 router.post('/', uploading, function (req, res, next) {
   
-  res.write( 'maa file is uploaded');
+  res.end( 'maa file is uploaded');
   
   next();
  
