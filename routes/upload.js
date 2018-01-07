@@ -22,7 +22,8 @@ var storage = multer.diskStorage({
     
     filename: function(req, file, callback) {
       
-      callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+      callback(null, file.fieldname + path.extname(file.originalname))
+      // '-' + Date.now() +
     }
 })
     
@@ -54,6 +55,8 @@ router.post('/', uploading, function (req, res, next) {
   next();
  
 }, function (req, res, next){
+  
+  split_pdf('./uploads/userFile.pdf', './splitted');
   
   res.end('split!');
   
