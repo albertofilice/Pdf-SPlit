@@ -22,9 +22,7 @@ var storage = multer.diskStorage({
     
     filename: function(req, file, callback) {
       
-      file_name = file.fieldname + '-' + Date.now() + path.extname(file.originalname);
-      
-      callback(null, file_name)
+      callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
 })
     
@@ -51,7 +49,7 @@ var uploading = multer({
 
 router.post('/', uploading, function (req, res, next) {
   
-  res.end(file.originalname + 'file is uploaded');
+  res.write(file.originalname + 'file is uploaded');
   
   next();
  
