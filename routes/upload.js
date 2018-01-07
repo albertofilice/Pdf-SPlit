@@ -56,7 +56,6 @@ router.post('/', uploading, function (req, res, next) {
 }, function (req, res, next){
   
   res.end('split!');
-}
   
 });
 
