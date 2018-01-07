@@ -57,13 +57,6 @@ router.post('/', uploading, function (req, res, next) {
  
 }, function (req, res){
   
-  split_pdf(
-    
-    path.join('./uploads' + file_name),
-    
-    path.join('./uploads')
-  );
-  
   res.end('split!');
 }
   
