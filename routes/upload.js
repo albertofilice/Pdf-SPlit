@@ -9,7 +9,7 @@ var express = require('express'),
     
     split_pdf = require('../split_pdf'),
     
-    file_name = ""
+    file_name = "";
 
     
     
@@ -21,8 +21,10 @@ var storage = multer.diskStorage({
     },
     
     filename: function(req, file, callback) {
-    
-      callback(null, file_name = file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+      
+      file_name = file.fieldname + '-' + Date.now() + path.extname(file.originalname);
+      
+      callback(null, file_name)
     }
 })
     
@@ -61,6 +63,8 @@ router.post('/', uploading, function (req, res, next) {
     
     path.join('./uploads')
   );
+  
+  res.end('split!');
 }
   
 });
