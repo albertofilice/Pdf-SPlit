@@ -51,11 +51,11 @@ var uploading = multer({
 
 router.post('/', uploading, function (req, res, next) {
   
-  res.end(file_name + 'file is uploaded');
+  res.end(file.originalname + 'file is uploaded');
   
   next();
  
-}, function (req, res){
+}, function (req, res, next){
   
   res.end('split!');
 }
