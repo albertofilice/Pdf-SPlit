@@ -11,6 +11,8 @@ var express = require('express'),
     
     file_name = ""
 
+    
+    
 var storage = multer.diskStorage({
  
     destination: function(req, file, callback) {
@@ -24,7 +26,8 @@ var storage = multer.diskStorage({
     }
 })
     
-    
+
+
 var uploading = multer({
     
   storage: storage,  
@@ -42,18 +45,24 @@ var uploading = multer({
   }
 }).single('userFile');
 
-var split_pdf_handler = function (req, res, nex){
-  console.log('split handler started ...')
+
+
+router.post('/', uploading, function (req, res, next) {
+  
+  res.end(file_name + 'file is uploaded');
+  
+  next();
+ 
+}, function (req, res){
   
   split_pdf(
-    path.join()
-  )
+    
+    path.join('./uploads' + file_name),
+    
+    path.join('./uploads')
+  );
 }
-
-router.post('/', uploading, function(req, res) {
   
-  res.end('file is uploaded')
-  
-})
+});
 
 module.exports = router
