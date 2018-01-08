@@ -64,9 +64,13 @@ function query_and_send(cf_arr, callback){
       
       email(raws.email, path.join('./splitted', attachment), function(sent){
         
+        console.log(sent);
+        
         if (! sent)
           
           not_sent_to += raws.email + ',';
+          
+          console.log(not_sent_to);
         
       });
       
