@@ -66,8 +66,9 @@ module.exports = function(sourcePDF, outputFolder, callback){
         pdfWriter.end();
       }
     }
-  });
-  
+    
   callback(cf_list);
+  
+  });
 }
 
