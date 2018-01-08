@@ -20,36 +20,19 @@ module.exports = function(query){
 
   
   
-  query.on('error', function(err) {
+  connection.query(queryString, function(err, rows, fields) {
     
-    throw err;
-
+    if (err) throw err;
+                   
+    for (var i in rows) {
+       console.log('result rows: ', rows[i].post_title);
+    }
+    
+  
+      console.log('fields: ', fields);
+      
   });
   
-  
-  
-  query.on('fields', function(fields) {
-  
-    console.log(fields);
-  
-  });
-  
-  
-  
-  query.on('result', function(row) {
-    
-    connection.pause();
-    
-    //do cose
-  
-    console.log(row);
-    
-    connection.resume();
-
-  });
-  
-
-
   connection.end();
   
 }
