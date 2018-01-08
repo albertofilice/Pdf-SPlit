@@ -60,13 +60,13 @@ function query_and_send(cf_arr, callback){
   
   for (var cf in cf_arr){
     
-    db(cf, function(raws){
+    db(cf, function(raw){
       
-      console.log('la email:' + raws['email'] + '\n');
+      console.log('la email:' + raw + '\n');
       
       attachment = cf + '.pdf';
       
-      email(raws.email, path.join('./splitted', attachment), function(sent){
+      email(raw, path.join('./splitted', attachment), function(sent){
         
         console.log('into amails callback\n');
         
@@ -74,7 +74,7 @@ function query_and_send(cf_arr, callback){
         
         if (! sent)
           
-          not_sent_to += raws.email + ',';
+          not_sent_to += raw + ',';
           
           console.log(not_sent_to);
         
