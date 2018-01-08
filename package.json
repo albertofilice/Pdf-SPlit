@@ -16,6 +16,7 @@
     "pdf-text-extract": "^1.5.0",
     "pug": "^2.0.0-beta11",
     "serve-favicon": "~2.3.0",
-    "hummus": "~1.0.79"
+    "hummus": "~1.0.79",
+    "mysql": "^2.5.4"
   }
 }

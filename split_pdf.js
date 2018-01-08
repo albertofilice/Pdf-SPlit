@@ -19,6 +19,8 @@ module.exports = function(sourcePDF, outputFolder){
     if (err) console.log(err);
           
           var scanned = "";
+          
+          var cf_list = "";
     
     //use a for-loop to make it easier to break out after a match is found, a match is a string in the cf form.
     for (let i = 0; i < pages.length; i++) {
@@ -47,6 +49,8 @@ module.exports = function(sourcePDF, outputFolder){
       
       else{
         
+        cf_list += scanned + ',';
+        
         var pdfWriter = hummus.createWriter(
           path.join(outputFolder, `${scanned}.pdf`)
             );
@@ -60,5 +64,7 @@ module.exports = function(sourcePDF, outputFolder){
       }
     }
   });
+  
+  return cf_list;
 }
 

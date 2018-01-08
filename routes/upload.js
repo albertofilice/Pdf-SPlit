@@ -1,15 +1,15 @@
 
-var express = require('express'),
+var express   = require('express'),
     
-    router = express.Router(),
+    router    = express.Router(),
     
-    multer = require('multer'),
+    multer    = require('multer'),
     
-    path = require('path'),
+    path      = require('path'),
     
     split_pdf = require('../split_pdf'),
     
-    file_name = "";
+    db        = require('./db-mysql');
 
     
     
@@ -50,19 +50,16 @@ var uploading = multer({
 
 router.post('/', uploading, function (req, res, next) {
   
-  res.end( 'maa file is uploaded');
+  var cf_list = split_pdf('./uploads/userFile.pdf', './splitted');
   
-  next();
- 
-}, function (req, res, next){
+  var cf_arr = cf_list.split(',');
   
-  split_pdf('./uploads/userFile.pdf', './splitted');
+  console.log(cf_arr);
   
-  next();
-
-}, function (req, res, next){
-  
-  res.end('split!');
+  for (var i in cf_arr){
+    
+    db(i);
+  }
   
 });
 
