@@ -88,7 +88,9 @@ router.post('/', uploading, function (req, res) {
   
   var cf_list;
   
-  var dir_name = Date.now().getDate() + '-' + Date.now().getMonth() + '-' + Date.now().getFullYear();
+  var now = Date.now();
+  
+  var dir_name = now.getDate() + '-' + now.getMonth() + '-' + now.getFullYear();
   
   var new_dir = path.join('./splitted', date); 
   

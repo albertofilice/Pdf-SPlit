@@ -14,7 +14,7 @@ module.exports = function(to, attachments, callback){
       {
         service: 'Aruba',
         host: 'smtp.aruba.it',
-        port: 25,
+        port: 465,
         auth: {
           user: 'Test@webdevelopmentlab.it',
           pass: 'Naruto43!'
