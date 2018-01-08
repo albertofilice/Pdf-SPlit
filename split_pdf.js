@@ -8,7 +8,7 @@ var fs      = require('fs');
 //parser
 var scan_cf = require('./scan_cf.js');
 
-module.exports = function(sourcePDF, outputFolder){
+module.exports = function(sourcePDF, outputFolder, callback){
     
   console.log('starttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt');
   var cf_list = "";
@@ -68,6 +68,6 @@ module.exports = function(sourcePDF, outputFolder){
     }
   });
   
-  return cf_list;
+  callback(cf_list);
 }
 
