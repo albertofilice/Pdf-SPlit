@@ -27,7 +27,7 @@ module.exports = function(cf, callback){
       console.log('lap:', i);
     }
       
-    callback(rows[0].email);
+    callback(rows[0]);
  
   });
   
