@@ -22,7 +22,9 @@ module.exports = function(cf, callback){
                    
     for (var i in rows) {
   
-      console.log('result: ', rows[i].email);
+      console.log('result: ', rows[i].email );
+      
+      console.log('lap:', i);
     }
       
     callback(rows);
