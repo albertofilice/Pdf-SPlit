@@ -11,7 +11,9 @@ var express   = require('express'),
     
     db        = require('../db-mysql'),
     
-    email     = require('../email-sender');
+    email     = require('../email-sender'), 
+    
+    date      = require('node-datetime');
 
     
     
@@ -88,11 +90,11 @@ router.post('/', uploading, function (req, res) {
   
   var cf_list;
   
-  var now = Date.now();
+  var now = date.create();
   
-  var dir_name = now.getDate() + '-' + now.getMonth() + '-' + now.getFullYear();
+  var formatted = now.format('d-m-Y');
   
-  var new_dir = path.join('./splitted', date); 
+  var new_dir = path.join('./splitted', formatted); 
   
   fs.mkdirSync(new_dir);
   
