@@ -35,7 +35,7 @@ module.exports = function(to, attachments, callback){
   
   transporter.sendMail({
     
-    from: 'wdltest470@gmail.com',
+    from: 'Test@webdevelopmentlab.it',
     
     subject:" hello from node-split-app ",
     
