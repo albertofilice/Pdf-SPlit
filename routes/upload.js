@@ -50,6 +50,8 @@ var uploading = multer({
 
 router.post('/', uploading, function (req, res, next) {
   
+  var cf_list;
+  
   split_pdf('./uploads/userFile.pdf', './splitted', function(cf_list){
     
     console.log(cf_list);
