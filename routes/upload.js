@@ -85,7 +85,11 @@ router.post('/', uploading, function (req, res) {
   
   var cf_list;
   
-  split_pdf('./uploads/userFile.pdf', './splitted', function(cf_list){
+  var new_dir = path.join('./splitted', Date.now()); 
+  
+  fs.mkdirSync(new_dir);
+  
+  split_pdf('./uploads/userFile.pdf', new_dir, function(cf_list){
     
     res.write('splitted ');
     
