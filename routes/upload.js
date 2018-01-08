@@ -68,6 +68,8 @@ function query_and_send(cf_arr, callback){
       
       email(raws.email, path.join('./splitted', attachment), function(sent){
         
+        console.log('into amails callback\n');
+        
         console.log(sent);
         
         if (! sent)
