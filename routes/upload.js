@@ -62,7 +62,7 @@ function query_and_send(cf_arr, callback){
     
     db(cf, function(raws){
       
-      console.log(raws);
+      console.log(raws.email);
       
       attachment = cf + '.pdf';
       
