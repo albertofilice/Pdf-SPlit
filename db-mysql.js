@@ -20,13 +20,9 @@ module.exports = function(cf, callback){
     
     if (err) throw err;
     
-    var row = rows[0];             
-                   
-    var email = row.email;
-    
-    console.log('risulta: ', email);
+    console.log('risulta: ', rows);
       
-    callback(email);
+    callback(rows);
  
   });
   
