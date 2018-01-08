@@ -19,15 +19,12 @@ module.exports = function(cf, callback){
   connection.query(queryString, function(err, rows, fields) {
     
     if (err) throw err;
-                   
-    for (var i in rows) {
-  
-      console.log('result: ', rows[i].email );
       
-      console.log('lap:', i);
-    }
+    var email = rows[0].email;
+    
+    console.log('result: ', email);
       
-    callback(rows[0]);
+    callback(email);
  
   });
   
