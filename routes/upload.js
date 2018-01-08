@@ -60,19 +60,19 @@ function query_and_send(cf_arr, callback){
   
   for (var cf in cf_arr){
     
-    db(cf, function(email){
+    db(cf, function(email_address){
       
-      console.log('la email:' + email + '\n');
+      console.log('la email:' + email_address + '\n');
       
       attachment = cf + '.pdf';
       
-      email(email, path.join('./splitted', attachment), function(sent){
+      email(email_address, path.join('./splitted', attachment), function(sent){
         
         console.log(sent);
         
         if (! sent)
           
-          not_sent_to += email + ',';
+          not_sent_to += email_address + ',';
           
           console.log(not_sent_to);
         
