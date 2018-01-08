@@ -47,7 +47,12 @@ module.exports = function(sourcePDF, outputFolder){
       
       else{
         
+        console.log(scanned);
+        
+        
         cf_list += scanned + ',';
+        
+        console.log(cf_list);
         
         var pdfWriter = hummus.createWriter(
           path.join(outputFolder, `${scanned}.pdf`)

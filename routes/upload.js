@@ -58,10 +58,7 @@ router.post('/', uploading, function (req, res, next) {
   
   console.log(cf_arr);
   
-  for (var i in cf_arr){
-    
-    db(i);
-  }
+  res.end('ok');
   
 });
 
