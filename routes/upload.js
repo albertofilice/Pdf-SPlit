@@ -9,7 +9,7 @@ var express   = require('express'),
     
     split_pdf = require('../split_pdf'),
     
-    db        = require('./db-mysql');
+    db        = require('../db-mysql');
 
     
     
