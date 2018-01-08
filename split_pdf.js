@@ -11,7 +11,7 @@ var scan_cf = require('./scan_cf.js');
 module.exports = function(sourcePDF, outputFolder){
     
   console.log('starttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt');
-  
+  var cf_list = "";
   //extract pages in array of strings, one page per item
   extract(sourcePDF, (err, pages) => {  
     
@@ -19,8 +19,6 @@ module.exports = function(sourcePDF, outputFolder){
     if (err) console.log(err);
           
           var scanned = "";
-          
-          var cf_list = "";
     
     //use a for-loop to make it easier to break out after a match is found, a match is a string in the cf form.
     for (let i = 0; i < pages.length; i++) {
