@@ -13,7 +13,9 @@ var express   = require('express'),
     
     email     = require('../email-sender'), 
     
-    date      = require('node-datetime');
+    date      = require('node-datetime'),
+    
+    fs        = require('fs');
 
     
     
