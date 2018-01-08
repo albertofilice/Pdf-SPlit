@@ -17,7 +17,7 @@ module.exports = function(to, attachments, callback){
         port: 465,
         secure: true,
         auth: {
-          user: 'wdltest@gmail.com',
+          user: 'wdltest470@gmail.com',
           pass: 'Naruto43!'
         }
       }
@@ -36,7 +36,7 @@ module.exports = function(to, attachments, callback){
   
   transporter.sendMail({
     
-    from: 'wdltest@gmail.com',
+    from: 'wdltest470@gmail.com',
     
     subject:" hello from node-split-app ",
     
