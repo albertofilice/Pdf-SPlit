@@ -58,8 +58,6 @@ router.post('/', uploading, function (req, res, next) {
     
   });
   
-  var cf_arr = cf_list.split(',');
-  
   console.log(cf_arr);
   
   res.end('ok');
