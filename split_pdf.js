@@ -11,15 +11,7 @@ var scan_cf = require('./scan_cf.js');
 module.exports = function(sourcePDF, outputFolder, callback){
     
   console.log('starttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt');
-  var cf_list = "";
-  
-  //delete any files that already exist in the output folder
-  fs.readdirSync(outputFolder).filter((file) => {
-  
-    fs.unlinkSync(path.join(outputFolder, file));
-  
-  });
-  
+  var cf_list = "";  
   
   //extract pages in array of strings, one page per item
   extract(sourcePDF, (err, pages) => {  

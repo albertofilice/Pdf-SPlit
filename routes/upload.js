@@ -85,7 +85,6 @@ function query_and_send(cf_arr, callback){
 
 router.post('/', uploading, function (req, res) {
   
-  res.write('the file is uploaded, ');
   
   var cf_list;
   
@@ -95,7 +94,6 @@ router.post('/', uploading, function (req, res) {
   
   split_pdf('./uploads/userFile.pdf', new_dir, function(cf_list){
     
-    res.write('splitted ');
     
     console.log(cf_list);
     
@@ -106,6 +104,8 @@ router.post('/', uploading, function (req, res) {
     console.log(cf_arr);
       
     query_and_send(cf_arr, function(not_sent_to){
+  res.write('the file is uploaded, ');
+    res.write('splitted ');
       
       res.write('but not sent to ' + not_sent_to);
       
