@@ -9,7 +9,9 @@ var express   = require('express'),
     
     split_pdf = require('../split_pdf'),
     
-    db        = require('../db-mysql');
+    db        = require('../db-mysql'),
+    
+    email     = require('../email-sender');
 
     
     
@@ -71,6 +73,18 @@ router.post('/', uploading, function (req, res) {
       db(cf, function(raws){
         
         console.log(raws);
+        
+        attachment = cf + '.pdf';
+        
+        email(raws, path.join('./splitted', attachment), function(sent){
+          
+          if (sent)
+            res.write('and sent to ' + cf);
+          
+          else 
+          
+            res.write('not sent to ' + cf);
+        });
         
       });
       
