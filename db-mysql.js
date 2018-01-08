@@ -24,7 +24,7 @@ module.exports = function(cf, callback){
                    
     var email = row.email;
     
-    console.log('result: ', email);
+    console.log('risulta: ', email);
       
     callback(email);
  
