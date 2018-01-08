@@ -19,8 +19,10 @@ module.exports = function(cf, callback){
   connection.query(queryString, function(err, rows, fields) {
     
     if (err) throw err;
-      
-    var email = rows[0].email;
+    
+    var row = rows[0];             
+                   
+    var email = row.email;
     
     console.log('result: ', email);
       
