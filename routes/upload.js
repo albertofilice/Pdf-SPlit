@@ -52,6 +52,8 @@ var uploading = multer({
 
 function query_and_send(cf_arr, callback){
   
+  var not_sent_to = "";
+  
   for (var cf in cf_arr){
     
     db(cf, function(raws){
@@ -62,20 +64,17 @@ function query_and_send(cf_arr, callback){
       
       email(raws.email, path.join('./splitted', attachment), function(sent){
         
-        if (sent)
+        if (! sent)
           
-          res.write('and sent to ' + cf);
+          not_sent_to += raws.email + ',';
         
-        else 
-          
-          res.write('not sent to ' + cf);
       });
       
     });
     
   }
   
-  callback();
+  callback(not_sent_to);
 }
 
 
