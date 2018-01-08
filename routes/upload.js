@@ -66,18 +66,28 @@ function query_and_send(cf_arr, callback){
       
       attachment = cf + '.pdf';
       
-      email(email_address, path.join('./splitted', attachment), function(sent){
+      if (email_address == [])
         
-        console.log(sent);
+        console.log('no email for ', cf);
+      
+      else{
         
-        if (! sent)
+        console.log('email ?', email_address[0].email);
+        
+        email(email_address, path.join('./splitted', attachment), function(sent){
           
-          not_sent_to += email_address + ',';
+          console.log(sent);
+          
+          if (! sent)
+            
+            not_sent_to += email_address + ',';
           
           console.log(not_sent_to);
+          
+        });  
         
-      });
-      
+      }
+        
     });
     
   }
