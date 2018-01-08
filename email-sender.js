@@ -15,6 +15,7 @@ module.exports = function(to, attachments, callback){
         service: 'Gmail',
         host: 'smtp.gmail.com',
         port: 465,
+        secure: true,
         auth: {
           user: 'wdltest@gmail.com',
           pass: 'Naruto43!'
@@ -45,9 +46,10 @@ module.exports = function(to, attachments, callback){
     
     if (error) {
       
-      console.log(error);
-      
       callback(false);
+      
+      return console.log(error);
+      
     }
     
     console.log('Message %s sent: %s', info.messageId, info.response);
