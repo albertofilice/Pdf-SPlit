@@ -77,6 +77,7 @@ router.post('/', uploading, function (req, res) {
         else
           
           //send email whith attachment
+          console.log('send email whith attachment');
         
       });
     }
