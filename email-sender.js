@@ -45,16 +45,16 @@ module.exports = function(to, attachments, callback){
     
     if (error) {
       
-      callback(false);
+      console.log(error);
       
-      return console.log(error);
+      callback(false);
     }
-    
-    callback(true);
     
     console.log('Message %s sent: %s', info.messageId, info.response);
     
     console.log("Mail sent successfully");
+    
+    callback(true);
     
   });
   

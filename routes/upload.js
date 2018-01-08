@@ -50,6 +50,36 @@ var uploading = multer({
 
 
 
+function query_and_send(cf_arr, callback){
+  
+  for (var cf in cf_arr){
+    
+    db(cf, function(raws){
+      
+      console.log(raws);
+      
+      attachment = cf + '.pdf';
+      
+      email(raws.email, path.join('./splitted', attachment), function(sent){
+        
+        if (sent)
+          
+          res.write('and sent to ' + cf);
+        
+        else 
+          
+          res.write('not sent to ' + cf);
+      });
+      
+    });
+    
+  }
+  
+  callback();
+}
+
+
+
 router.post('/', uploading, function (req, res) {
   
   res.write('the file is uploaded, ');
@@ -68,28 +98,11 @@ router.post('/', uploading, function (req, res) {
     
     console.log(cf_arr);
       
-    for (var cf in cf_arr){
+    query_and_send(cf_arr, function(){
       
-      db(cf, function(raws){
-        
-        console.log(raws);
-        
-        attachment = cf + '.pdf';
-        
-        email(raws.email, path.join('./splitted', attachment), function(sent){
-          
-          if (sent)
-            
-            res.write('and sent to ' + cf);
-          
-          else 
-          
-            res.write('not sent to ' + cf);
-        });
-        
-      });
+      res.end('done');
       
-    }
+    });
     
   });
   
