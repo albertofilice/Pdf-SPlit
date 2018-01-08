@@ -70,16 +70,10 @@ router.post('/', uploading, function (req, res) {
       
       db(cf, function(raws){
         
-        if (raws == null)
-          
-          res.write('can\'t send email to ' + cf);
-        
-        else
-          
-          //send email whith attachment
-          console.log('send email whith attachment');
+        console.log(raws);
         
       });
+      
     }
     
     res.end('done.');
