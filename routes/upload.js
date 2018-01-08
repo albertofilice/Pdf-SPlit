@@ -48,21 +48,42 @@ var uploading = multer({
 
 
 
-router.post('/', uploading, function (req, res, next) {
+router.post('/', uploading, function (req, res) {
+  
+  res.write('the file is uploaded, ');
   
   var cf_list;
   
   split_pdf('./uploads/userFile.pdf', './splitted', function(cf_list){
     
+    res.write('splitted ');
+    
     console.log(cf_list);
     
     var cf_arr = cf_list.split(",");
     
+    cf_arr.pop();
+    
     console.log(cf_arr);
+      
+    for (var cf in cf_arr){
+      
+      db(cf, function(raws){
+        
+        if (raws == null)
+          
+          res.write('can\'t send email to ' + cf);
+        
+        else
+          
+          //send email whith attachment
+        
+      });
+    }
+    
+    res.end('done.');
     
   });
-    
-  res.end('ok');
   
 });
 

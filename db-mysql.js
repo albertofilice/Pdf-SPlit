@@ -1,7 +1,7 @@
 
 var mysql = require('mysql');
 
-module.exports = function(query){
+module.exports = function(cf, callback){
     
   var connection = mysql.createConnection(
     {
@@ -14,26 +14,22 @@ module.exports = function(query){
   
   connection.connect();
   
-  var queryString = 'SELECT * FROM users';
-  
-  connection.query(queryString);
+  var queryString = 'SELECT email FROM users WHERE codicefiscale=' + cf;
 
-  
-  
   connection.query(queryString, function(err, rows, fields) {
     
     if (err) throw err;
                    
     for (var i in rows) {
-       console.log('result rows: ', rows[i].post_title);
-    }
-    
   
-      console.log('fields: ', fields);
+      console.log('result: ', rows[i]);
+    }
       
+    callback(rows);
+ 
   });
   
   connection.end();
-  
+    
 }
 
