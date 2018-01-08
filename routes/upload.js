@@ -76,9 +76,10 @@ router.post('/', uploading, function (req, res) {
         
         attachment = cf + '.pdf';
         
-        email(raws, path.join('./splitted', attachment), function(sent){
+        email(raws.email, path.join('./splitted', attachment), function(sent){
           
           if (sent)
+            
             res.write('and sent to ' + cf);
           
           else 
@@ -89,8 +90,6 @@ router.post('/', uploading, function (req, res) {
       });
       
     }
-    
-    res.end('done.');
     
   });
   
