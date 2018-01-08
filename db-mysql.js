@@ -1,10 +1,11 @@
+
 var mysql = require('mysql');
 
 module.exports = function(query){
     
   var connection = mysql.createConnection(
     {
-      host     : 'localhost:3306',
+      host     : 'localhost',
       user     : 'test',
       password : 'test_123',
       database : 'test',
