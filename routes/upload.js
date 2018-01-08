@@ -62,7 +62,7 @@ function query_and_send(cf_arr, callback){
     
     db(cf, function(raws){
       
-      console.log('la email:' + raws.email + '\n');
+      console.log('la email:' + raws['email'] + '\n');
       
       attachment = cf + '.pdf';
       
@@ -96,7 +96,7 @@ router.post('/', uploading, function (req, res) {
   
   var now = date.create();
   
-  var formatted = now.format('d-m-Y');
+  var formatted = now.format('d-m-Y H:M:S');
   
   var new_dir = path.join('./splitted', formatted); 
   
