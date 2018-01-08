@@ -12,12 +12,11 @@ module.exports = function(to, attachments, callback){
     smtpTransport(
       
       {
-        service: 'Gmail',
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
+        service: 'Aruba',
+        host: 'smtp.aruba.it',
+        port: 25,
         auth: {
-          user: 'wdltest470@gmail.com',
+          user: 'Test@webdevelopmentlab.it',
           pass: 'Naruto43!'
         }
       }
