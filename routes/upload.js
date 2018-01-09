@@ -119,7 +119,7 @@ function query_and_send(cf_arr, dir_path, callback){
 
 router.post('/', uploading, function (req, res) {
   
-  res.write('the file is uploaded, ');
+  res.write('File Caricato e ');
   
   var cf_list;
   
@@ -135,7 +135,7 @@ router.post('/', uploading, function (req, res) {
   
   split_pdf('./uploads/userFile.pdf', new_dir, function(cf_list){
      
-    res.write('splitted ');
+    res.write('Diviso Per Codice Fiscale ');
     
     console.log(cf_list);
     
@@ -163,15 +163,15 @@ router.post('/', uploading, function (req, res) {
           
           for (var unsent in not_sent_to_arr) 
             
-            result += 'unsent: ' + not_sent_to_arr[unsent] + '\n';
+            result += 'Non inviato: ' + not_sent_to_arr[unsent] + '\n';
           
           for (var sent in sent_to_arr)
             
-            result += 'sent: ' + sent_to_arr[sent] + '\n';
+            result += 'Inviato: ' + sent_to_arr[sent] + '\n';
         
         fs.writeFileSync(new_file, result);
                
-        res.write('\n result: \n' + result);
+        res.write('\n Il risultato è il seguente: \n' + result);
         
       }
       
