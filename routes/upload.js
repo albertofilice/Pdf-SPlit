@@ -140,7 +140,7 @@ router.post('/', uploading, function (req, res) {
     
     console.log(cf_arr);
       
-    query_and_send(cf_arr, new_dir, (not_sent_to){
+    query_and_send(cf_arr, new_dir, function (not_sent_to){
       
       res.write('but not sent to: ', not_sent_to);
       
