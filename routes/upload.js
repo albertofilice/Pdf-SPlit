@@ -56,6 +56,8 @@ var uploading = multer({
 
 function query_and_send(cf_arr, callback){
   
+  console.log('cf_arr: ', cf_arr);
+  
   var not_sent_to = "";
   
   for (var cf in cf_arr){
