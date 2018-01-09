@@ -148,9 +148,16 @@ router.post('/', uploading, function (req, res) {
         var new_file = './unsent/' + formatted + '.txt';
         
         fs.writeFileSync(new_file, not_sent_to);
-      
-        res.write('but not sent to: ' + not_sent_to);
-      
+        
+        var not_sent_to_arr = not_sent_to.split(',');
+        
+        not_sent_to_arr.pop();
+        
+        res.write('but not sent to: ');
+        
+        for (var unsent in not_sent_to_arr)
+          
+            res.write(not_sent_to_arr[unsent]);
       }
       
       res.end(' and done');
