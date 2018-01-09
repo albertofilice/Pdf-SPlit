@@ -47,13 +47,13 @@ module.exports = function(to, attachments, callback){
     
     from: 'wdltest470@gmail.com',
     
-    subject:" hello from node-split-app ",
+    subject:" Cedolini ",
     
-    text: "fattura",
+    text: "Studio Pantano le invia il cedolino per ill mese corrente",
     
     attachments:[
     {
-      'filename':'fattura.pdf',
+      'filename':'Cedolini.pdf',
       'path': attachments
     }
     ],
