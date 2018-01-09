@@ -74,6 +74,8 @@ function query_and_send(cf_arr, callback){
         
       if (email_address.length == 0){
         
+        not_sent_to += q + ',';
+        
         console.log('no email for ', q);
         
       }
@@ -137,6 +139,7 @@ router.post('/', uploading, function (req, res) {
       
     query_and_send(cf_arr, function(not_sent_to){
       
+      res.write('not_sent_to: ', not_sent_to);
       res.end('done');
       
     });

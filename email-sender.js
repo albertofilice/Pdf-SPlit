@@ -14,11 +14,11 @@ module.exports = function(to, attachments, callback){
     smtpTransport(
       
       {
-        service: 'Aruba',
-        host: 'smtp.aruba.it',
+        service: 'Gmail',
+        host: 'smtp.gmail.com',
         port: 465,
         auth: {
-          user: 'Test@webdevelopmentlab.it',
+          user: 'wdltest470@gmail.com',
           pass: 'Naruto43!'
         }
       }
@@ -43,7 +43,7 @@ module.exports = function(to, attachments, callback){
   
   transporter.sendMail({
     
-    from: 'Test@webdevelopmentlab.it',
+    from: 'wdltest470@gmail.com',
     
     subject:" hello from node-split-app ",
     
