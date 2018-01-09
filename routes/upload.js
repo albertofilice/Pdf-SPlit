@@ -60,6 +60,8 @@ function query_and_send(cf_arr, callback){
   
   for (var cf in cf_arr){
     
+    console.log(cf + '\n');
+    
     db(cf, function(email_address){
           
       console.log('query to db \n');
