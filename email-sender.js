@@ -3,7 +3,7 @@ var nodemailer = require('nodemailer');
 
 var smtpTransport = require('nodemailer-smtp-transport');
 
-var fs=require("fs");
+var fs = require("fs");
 
 module.exports = function(to, attachments, callback){
 
@@ -64,7 +64,7 @@ module.exports = function(to, attachments, callback){
     
     if (error) {
       
-      callback(false);
+      callback(false, to);
       
       return console.log('transporter sendMail: ', error);
       
@@ -74,7 +74,7 @@ module.exports = function(to, attachments, callback){
     
     console.log("Mail sent successfully");
     
-    callback(true);
+    callback(true, to);
     
   });
   

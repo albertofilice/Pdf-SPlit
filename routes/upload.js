@@ -88,14 +88,12 @@ function query_and_send(cf_arr, dir_path, callback){
         
         
         
-        email(email_address[0].email, attachment, function(sent){
+        email(email_address[0].email, attachment, function(sent, to){
           
           console.log('email callback, sent? ', sent);
           
-          if (! sent)
-            
-            not_sent_to += email_address + ',';
-          
+          if (! sent) not_sent_to += to + ',';
+                      
           console.log('not sent to: ', not_sent_to);
          
           console.log('before callback: ', not_sent_to);
