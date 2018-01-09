@@ -60,6 +60,8 @@ function query_and_send(cf_arr, dir_path, callback){
   
   var not_sent_to = '';
   
+  var sent_to = '';
+  
   for (var cf in cf_arr){
     
     console.log(cf_arr[cf] + '\n');
@@ -93,6 +95,8 @@ function query_and_send(cf_arr, dir_path, callback){
           console.log('email callback, sent? ', sent);
           
           if (! sent) not_sent_to += to + ',';
+              
+          else sent_to += to + ',';
                       
           console.log('not sent to: ', not_sent_to);
          
@@ -141,13 +145,17 @@ router.post('/', uploading, function (req, res) {
     
     console.log(cf_arr);
       
-    query_and_send(cf_arr, new_dir, function (not_sent_to){
+    query_and_send(cf_arr, new_dir, function (not_sent_to, sent_to){
       
       if ( !(not_sent_to == '') ){
         
-        var new_file = './unsent/' + formatted + '.txt';
+        var new_unsent_file = './unsent/' + formatted + '-unsent-CF' + '.txt';
         
-        fs.writeFileSync(new_file, not_sent_to);
+        var new_sent_file = './unsent/' + formatted + '-sent-CF' + '.txt';
+        
+        fs.writeFileSync(new_unsent_file, not_sent_to);
+        
+        fs.writeFileSync(new_sent_file, not_sent_to);
         
         var not_sent_to_arr = not_sent_to.split(',');
         
