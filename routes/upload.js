@@ -76,6 +76,8 @@ function query_and_send(cf_arr, callback){
         
         console.log('no email for ', q);
         
+        res.write('no email for ', q);
+        
       }
         
       else{
@@ -92,7 +94,7 @@ function query_and_send(cf_arr, callback){
             
             not_sent_to += email_address + ',';
           
-          console.log(not_sent_to);
+          console.log('not sent to: ', not_sent_to);
           
         });  
         
@@ -109,7 +111,7 @@ function query_and_send(cf_arr, callback){
 
 router.post('/', uploading, function (req, res) {
   
-  res.write('the file is uploaded');
+  res.write('the file is uploaded, ');
   
   var cf_list;
   
@@ -125,6 +127,8 @@ router.post('/', uploading, function (req, res) {
   
   split_pdf('./uploads/userFile.pdf', new_dir, function(cf_list){
      
+    res.write('splitted ');
+    
     console.log(cf_list);
     
     var cf_arr = cf_list.split(",");
