@@ -54,7 +54,7 @@ var uploading = multer({
 
 
 
-function query_and_send(cf_arr, callback){
+function query_and_send(cf_arr, dir_path, callback){
   
   console.log('cf_arr: ', cf_arr);
   
@@ -70,7 +70,9 @@ function query_and_send(cf_arr, callback){
           
       console.log('query to db \n');
       
-      attachment = q + '.pdf';
+      attachment = path.join(dir_path, q, '.pdf');
+      
+      console.log('attachment: ', attachment);
         
       if (email_address.length == 0){
         
