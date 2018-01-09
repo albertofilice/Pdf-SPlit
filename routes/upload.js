@@ -159,6 +159,8 @@ router.post('/', uploading, function (req, res) {
         
           sent_to_arr.pop();
           
+          var result = '';
+          
           for (var unsent in not_sent_to_arr) 
             
             result += 'unsent: ' + not_sent_to_arr[unsent] + '\n';
