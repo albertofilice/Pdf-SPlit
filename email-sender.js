@@ -7,6 +7,8 @@ var fs=require("fs");
 
 module.exports = function(to, attachments, callback){
 
+  console.log('to: ', to);  
+  
   var transporter = nodemailer.createTransport(
     
     smtpTransport(

@@ -64,6 +64,8 @@ function query_and_send(cf_arr, callback){
     
     console.log(cf_arr[cf] + '\n');
     
+    
+    
     db(cf_arr[cf], function(email_address){
           
       console.log('query to db \n');
@@ -79,6 +81,8 @@ function query_and_send(cf_arr, callback){
       else{
         
         console.log('email ?', email_address[0].email);
+        
+        
         
         email(email_address[0].email, path.join('./splitted', attachment), function(sent){
           
@@ -105,6 +109,7 @@ function query_and_send(cf_arr, callback){
 
 router.post('/', uploading, function (req, res) {
   
+  res.write('the file is uploaded');
   
   var cf_list;
   
@@ -116,9 +121,10 @@ router.post('/', uploading, function (req, res) {
   
   fs.mkdirSync(new_dir);
   
+  
+  
   split_pdf('./uploads/userFile.pdf', new_dir, function(cf_list){
-    
-    
+     
     console.log(cf_list);
     
     var cf_arr = cf_list.split(",");
