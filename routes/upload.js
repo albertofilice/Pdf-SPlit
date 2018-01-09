@@ -78,7 +78,7 @@ function query_and_send(cf_arr, dir_path, callback){
         
         not_sent_to += q + ',';
         
-        console.log('no email for ', q);
+        console.log('no email for ', not_sent_to);
         
       }
         
