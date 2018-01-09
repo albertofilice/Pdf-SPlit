@@ -64,7 +64,7 @@ function query_and_send(cf_arr, callback){
     
     console.log(cf_arr[cf] + '\n');
     
-    db(cf, function(email_address){
+    db(cf_arr[cf], function(email_address){
           
       console.log('query to db \n');
       
