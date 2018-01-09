@@ -102,11 +102,11 @@ function query_and_send(cf_arr, dir_path, callback){
         
       }
         
+  callback(not_sent_to);
     });
     
   }
   
-  callback(not_sent_to);
 }
 
 
