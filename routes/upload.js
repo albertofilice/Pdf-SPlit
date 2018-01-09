@@ -54,7 +54,7 @@ var uploading = multer({
 
 
 
-function query_and_send(cf_arr, res, callback){
+function query_and_send(cf_arr, callback){
   
   console.log('cf_arr: ', cf_arr);
   
@@ -75,8 +75,6 @@ function query_and_send(cf_arr, res, callback){
       if (email_address.length == 0){
         
         console.log('no email for ', q);
-        
-        res.write('no email for ', q);
         
       }
         
@@ -137,7 +135,7 @@ router.post('/', uploading, function (req, res) {
     
     console.log(cf_arr);
       
-    query_and_send(cf_arr, res, function(not_sent_to){
+    query_and_send(cf_arr, function(not_sent_to){
       
       res.end('done');
       
