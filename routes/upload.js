@@ -61,15 +61,17 @@ function query_and_send(cf_arr, callback){
   for (var cf in cf_arr){
     
     db(cf, function(email_address){
-      
-      console.log('la email:' + email_address + '\n');
+          
+      console.log('query to db \n');
       
       attachment = cf + '.pdf';
-      
-      if (email_address == [])
+        
+      if (email_address === []){
         
         console.log('no email for ', cf);
-      
+        
+      }
+        
       else{
         
         console.log('email ?', email_address[0].email);
