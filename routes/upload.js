@@ -163,19 +163,19 @@ router.post('/', uploading, function (req, res) {
           
           for (var unsent in not_sent_to_arr) 
             
-            result += 'Non inviato: ' + not_sent_to_arr[unsent] + '\n';
+            result += 'unsent: ' + not_sent_to_arr[unsent] + '\n';
           
           for (var sent in sent_to_arr)
             
-            result += 'Inviato: ' + sent_to_arr[sent] + '\n';
+            result += 'sent: ' + sent_to_arr[sent] + '\n';
         
         fs.writeFileSync(new_file, result);
                
-        res.write('\n Il risultato è il seguente: \n' + result);
+        res.write('\n Il risultato &egrave; il seguente: \n' + result);
         
       }
       
-      res.end(' and done');
+      res.end(' Completato');
       
     });
     
