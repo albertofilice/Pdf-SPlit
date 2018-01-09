@@ -161,11 +161,11 @@ router.post('/', uploading, function (req, res) {
           
           for (var unsent in not_sent_to_arr) 
             
-            result = 'unsent: ' + not_sent_to_arr[unsent] + '\n';
+            result += 'unsent: ' + not_sent_to_arr[unsent] + '\n';
           
           for (var sent in sent_to_arr)
             
-            result = 'sent: ' + sent_to_arr[sent] + '\n';
+            result += 'sent: ' + sent_to_arr[sent] + '\n';
         
         fs.writeFileSync(new_file, result);
                
