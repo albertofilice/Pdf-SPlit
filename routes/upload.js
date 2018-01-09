@@ -145,7 +145,7 @@ router.post('/', uploading, function (req, res) {
       
       if ( !(not_sent_to == '') ){
         
-        var new_file = '../unsent/' + formatted + '.txt';
+        var new_file = './unsent/' + formatted + '.txt';
         
         fs.writeFileSync(new_file, not_sent_to);
       
