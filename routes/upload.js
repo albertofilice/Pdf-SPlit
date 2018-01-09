@@ -171,11 +171,11 @@ router.post('/', uploading, function (req, res) {
         
         fs.writeFileSync(new_file, result);
                
-        res.write('\n Il risultato &egrave; il seguente: \n' + result);
+        res.write('\n Risultato: \n' + result);
         
       }
       
-      res.end(' Completato');
+      res.end('Invio tramite Mail Completato');
       
     });
     
