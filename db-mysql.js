@@ -24,7 +24,7 @@ module.exports = function(cf, callback){
     
     console.log('risulta: ', rows);
       
-    callback(rows);
+    callback(rows, cf);
  
   });
   
