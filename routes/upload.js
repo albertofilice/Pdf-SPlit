@@ -58,7 +58,7 @@ function query_and_send(cf_arr, dir_path, callback){
   
   console.log('cf_arr: ', cf_arr);
   
-  var not_sent_to = "";
+  var not_sent_to = '';
   
   for (var cf in cf_arr){
     
@@ -143,7 +143,15 @@ router.post('/', uploading, function (req, res) {
       
     query_and_send(cf_arr, new_dir, function (not_sent_to){
       
-      res.write('but not sent to: ' + not_sent_to);
+      if ( !(not_sent_to == '') ){
+        
+        var new_file = '../unsent/' + formatted + '.txt';
+        
+        fs.writeFileSync(new_file, not_sent_to);
+      
+        res.write('but not sent to: ' + not_sent_to);
+      
+      }
       
       res.end(' and done');
       
