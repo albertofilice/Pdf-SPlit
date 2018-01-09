@@ -97,6 +97,10 @@ function query_and_send(cf_arr, dir_path, callback){
             not_sent_to += email_address + ',';
           
           console.log('not sent to: ', not_sent_to);
+         
+          console.log('before callback: ', not_sent_to);
+          
+          callback(not_sent_to);
           
         });  
         
@@ -106,9 +110,6 @@ function query_and_send(cf_arr, dir_path, callback){
     
   }
   
-  console.log('before callback: ', not_sent_to);
-  
-  callback(not_sent_to);
   
 }
 
