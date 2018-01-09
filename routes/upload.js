@@ -149,23 +149,28 @@ router.post('/', uploading, function (req, res) {
       
       if ( !(not_sent_to == '') ){
         
-        var new_unsent_file = './sent-and-unsent/' + formatted + '-unsent-CF' + '.txt';
-        
-        var new_sent_file = './sent-and-unsent/' + formatted + '-sent-CF' + '.txt';
-        
-        fs.writeFileSync(new_unsent_file, not_sent_to);
-        
-        fs.writeFileSync(new_sent_file, not_sent_to);
+        var new_file = './sent-and-unsent/' + formatted + '.txt';
         
         var not_sent_to_arr = not_sent_to.split(',');
         
-        not_sent_to_arr.pop();
-        
-        res.write('but not sent to: ');
-        
-        for (var unsent in not_sent_to_arr)
+          not_sent_to_arr.pop();
           
-            res.write(not_sent_to_arr[unsent]);
+        var sent_to_arr = sent_to.split(',');
+        
+          sent_to_arr.pop();
+          
+          for (var unsent in not_sent_to_arr) 
+            
+            result = 'unsent: ' + not_sent_to_arr[unsent] + '\n';
+          
+          for (var sent in sent_to_arr)
+            
+            result = 'sent: ' + sent_to_arr[sent] + '\n';
+        
+        fs.writeFileSync(new_file, result);
+               
+        res.write('\n result: \n' + result);
+        
       }
       
       res.end(' and done');
