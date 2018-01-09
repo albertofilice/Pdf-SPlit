@@ -54,7 +54,7 @@ var uploading = multer({
 
 
 
-function query_and_send(cf_arr, callback){
+function query_and_send(cf_arr, res, callback){
   
   console.log('cf_arr: ', cf_arr);
   
@@ -137,7 +137,7 @@ router.post('/', uploading, function (req, res) {
     
     console.log(cf_arr);
       
-    query_and_send(cf_arr, function(not_sent_to){
+    query_and_send(cf_arr, res, function(not_sent_to){
       
       res.end('done');
       
