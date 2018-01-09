@@ -9,6 +9,8 @@ module.exports = function(to, attachments, callback){
 
   console.log('to: ', to);  
   
+  console.log('attachments: ', attachments);
+  
   var transporter = nodemailer.createTransport(
     
     smtpTransport(

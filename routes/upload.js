@@ -88,7 +88,7 @@ function query_and_send(cf_arr, dir_path, callback){
         
         
         
-        email(email_address[0].email, path.join('./splitted', attachment), function(sent){
+        email(email_address[0].email, attachment, function(sent){
           
           console.log('email callback, sent? ', sent);
           
@@ -126,7 +126,7 @@ router.post('/', uploading, function (req, res) {
   
   fs.mkdirSync(new_dir);
   
-  
+  console.log('new dir: ', new_dir);
   
   split_pdf('./uploads/userFile.pdf', new_dir, function(cf_list){
      
