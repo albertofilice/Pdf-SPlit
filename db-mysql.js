@@ -19,6 +19,8 @@ module.exports = function(cf, callback){
   connection.query(queryString, function(err, rows, fields) {
     
     if (err) throw err;
+                   
+    console.log('codice fiscale in db query: ', cf);
     
     console.log('risulta: ', rows);
       

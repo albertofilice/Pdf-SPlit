@@ -29,7 +29,7 @@ module.exports = function(to, attachments, callback){
 
     if (error) {
       
-      console.log(error);
+      console.log('transporter verify: ', error);
 
     } else {
 
@@ -62,7 +62,7 @@ module.exports = function(to, attachments, callback){
       
       callback(false);
       
-      return console.log(error);
+      return console.log('transporter sendMail: ', error);
       
     }
     

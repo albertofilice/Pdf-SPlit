@@ -80,11 +80,9 @@ function query_and_send(cf_arr, callback){
         
         console.log('email ?', email_address[0].email);
         
-        email(email_address, path.join('./splitted', attachment), function(sent){
+        email(email_address[0].email, path.join('./splitted', attachment), function(sent){
           
-          console.log('email callback');
-          
-          console.log(sent);
+          console.log('email callback, sent? ', sent);
           
           if (! sent)
             
