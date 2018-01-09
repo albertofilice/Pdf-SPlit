@@ -66,7 +66,7 @@ function query_and_send(cf_arr, callback){
       
       attachment = cf + '.pdf';
         
-      if (email_address == undefined){
+      if (email_address.length == 0){
         
         console.log('no email for ', cf);
         
@@ -77,6 +77,8 @@ function query_and_send(cf_arr, callback){
         console.log('email ?', email_address[0].email);
         
         email(email_address, path.join('./splitted', attachment), function(sent){
+          
+          console.log('email callback');
           
           console.log(sent);
           
