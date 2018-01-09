@@ -14,7 +14,7 @@ module.exports = function(cf, callback){
   
   connection.connect();
   
-  var queryString = 'SELECT email FROM users WHERE codicefiscale=' + cf;
+  var queryString = 'SELECT email FROM users WHERE codicefiscale = ' + mysql.escape(cf);
 
   connection.query(queryString, function(err, rows, fields) {
     
