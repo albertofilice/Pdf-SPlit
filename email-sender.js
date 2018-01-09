@@ -49,7 +49,7 @@ module.exports = function(to, attachments, callback){
     
     text: "fattura",
     
-    Attachments:[
+    attachments:[
     {
       'filename':'fattura.pdf',
       'path': attachments

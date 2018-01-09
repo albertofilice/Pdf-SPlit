@@ -139,8 +139,9 @@ router.post('/', uploading, function (req, res) {
       
     query_and_send(cf_arr, function(not_sent_to){
       
-      res.write('not_sent_to: ', not_sent_to);
-      res.end('done');
+      res.write('but not sent to: ', not_sent_to);
+      
+      res.end(' and done');
       
     });
     
