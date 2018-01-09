@@ -66,7 +66,7 @@ function query_and_send(cf_arr, callback){
       
       attachment = cf + '.pdf';
         
-      if (email_address === []){
+      if (email_address == undefined){
         
         console.log('no email for ', cf);
         
